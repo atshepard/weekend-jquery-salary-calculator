@@ -1,5 +1,6 @@
 $(readyNow);
 
 function readyNow() {
-    
+
 }
+
