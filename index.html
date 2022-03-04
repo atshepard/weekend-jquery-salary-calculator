@@ -12,38 +12,43 @@
 </head>
 <body>
     <main class="container">
-
+    <section>
+        <h2>
+            Employee Salary Calculator
+            <small class="text-muted"> for calculating employee salary</small>
+          </h2>
+    </section>
     <section class="dataCollect">
         <!-- Input Fields -->
     <div class="row">
         <div class="form-floating mb-3 px-1 col">
-            <input type="text" class="form-control" id="employeeFN" placeholder="First Name">
+            <input type="text" class="inputField form-control" id="employeeFN" placeholder="First Name">
             <label for="employeeFN">First Name</label>
           </div>
 
         <div class="form-floating mb-3 px-1 col">
-            <input type="text" class="form-control" id="employeeLN" placeholder="Last Name">
+            <input type="text" class="inputField  form-control" id="employeeLN" placeholder="Last Name">
             <label for="employeeLN">Last Name</label>
           </div>
         
         <div class="form-floating mb-3 px-1 col">
-            <input type="text" class="form-control" id="employeeID" placeholder="Employee ID">
+            <input type="text" class="inputField form-control" id="employeeID" placeholder="Employee ID">
             <label for="employeeID">Employee ID</label>
           </div>
           
         <div class="form-floating mb-3 px-1 col">
-            <input type="text" class="form-control" id="jobTitle" placeholder="Job Title">
+            <input type="text" class="inputField form-control" id="jobTitle" placeholder="Job Title">
             <label for="jobTitle">Job Title</label>
           </div>
 
         <div class="form-floating mb-3 px-1 col">
-            <input type="number" class="form-control" id="annualSalary" placeholder="Annual Salary">
+            <input type="number" class="inputField form-control" id="annualSalary" placeholder="Annual Salary">
             <label for="annualSalary">Annual Salary</label>
           </div>  
-        </div> 
-        
-        <!-- Submit Button -->
+          <!-- Submit Button -->
 
+        <button type="button" class="btn btn-outline-dark" id="submitBtn">Submit</button>     
+    </div>
     </section>
     <section class="dataDisplay">
         <!-- General Table Structure -->
@@ -51,7 +56,11 @@
             <thead>
                 <!-- THESE ARE COLUMNS OF HEADINGS-->
                 <tr>
-                    <!-- <th></th> -->
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>ID Number</th>
+                    <th>Job Title</th>
+                    <th>Annual Salary</th>
                 </tr>
             </thead>
             <tbody>
