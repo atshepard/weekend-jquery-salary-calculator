@@ -7,6 +7,8 @@ ID number
 job title 
 annual salary
 
+.attr() - can target HtML attributes and add them, including IDs and classes
+
 - submit button to collect form information. 
 - store the information to calculate monthly costs
 - append information to the DOM
