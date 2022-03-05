@@ -1,8 +1,11 @@
 $(readyNow);
 
+let totalSalary = [];
+
 function readyNow() {
 
 $('#submitBtn').on('click', grabInfo);
+$('#submitBtn').on('click', addToTotal);
 
 // Click Listeners go here: 
 // one for submit
@@ -17,8 +20,9 @@ let employeeLN = $('#employeeLN').val()
 let employeeID = $('#employeeID').val()
 let jobTitle = $('#jobTitle').val()
 let annualSalary = $('#annualSalary').val()
-let deleteButton = $(`<button type="button" class="btn btn-outline-primary">DELETE</button>`)
 console.log(employeeFN, employeeLN, employeeID, jobTitle, annualSalary);
+
+totalSalary.push(Number($('#annualSalary').val()));
 
 $('#tableRows').append(`<tr id="${employeeFN}">
 <td>${employeeFN}</td>
@@ -26,20 +30,20 @@ $('#tableRows').append(`<tr id="${employeeFN}">
 <td>${employeeID}</td>
 <td>${jobTitle}</td>
 <td>${annualSalary}</td>
-<td>${deleteButton}</td>
+<td><button type="button" class="btn btn-outline-secondary btn-small" id="${employeeFN}Btn" >DELETE</button></td>
 </tr>`);
 
-render();
+renderInfo();
 
 }
 
-function submitHandler() {
-//needs to take inputs and append them to the DOM
-//DOM location will be the <td></td>
-
+function addToTotal() {
+console.log(totalSalary);
+let monthlyCosts = totalSalary.reduce((a,b) => a + b);
+$('#totalCosts').text(monthlyCosts);
 }
 
-function render() {
+function renderInfo() {
     $('#employeeFN').val('');
     $('#employeeLN').val('');
     $('#employeeID').val('');
