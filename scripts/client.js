@@ -4,13 +4,11 @@ let totalSalary = [];
 
 function readyNow() {
 
+//Click Listeners:
 $('#submitBtn').on('click', grabInfo);
 $('#submitBtn').on('click', addToTotal);
 
-// Click Listeners go here: 
-// one for submit
-// one for delete (maybe if I get to stretch)
-
+$('#tableRows').on('click', '.deleteBtn', deleteFromTotal);
 }
 
 function grabInfo() {
@@ -20,7 +18,7 @@ let employeeLN = $('#employeeLN').val()
 let employeeID = $('#employeeID').val()
 let jobTitle = $('#jobTitle').val()
 let annualSalary = $('#annualSalary').val()
-console.log(employeeFN, employeeLN, employeeID, jobTitle, annualSalary);
+console.log('adding employee:', employeeFN, employeeLN, employeeID, jobTitle, annualSalary);
 
 totalSalary.push(Number($('#annualSalary').val()));
 
@@ -30,7 +28,7 @@ $('#tableRows').append(`<tr id="${employeeFN}">
 <td>${employeeID}</td>
 <td>${jobTitle}</td>
 <td>${annualSalary}</td>
-<td><button type="button" class="btn btn-outline-secondary btn-small" id="${employeeFN}Btn" >DELETE</button></td>
+<td><button type="button" class="deleteBtn btn btn-outline-secondary">Delete</button></td>
 </tr>`);
 
 renderInfo();
@@ -38,9 +36,14 @@ renderInfo();
 }
 
 function addToTotal() {
-console.log(totalSalary);
+// console.log('checking total salary: ', totalSalary);
 let monthlyCosts = totalSalary.reduce((a,b) => a + b);
 $('#totalCosts').text(monthlyCosts);
+
+if (monthlyCosts > 20000) {
+    $('#monthlyCosts').addClass("border border-danger");
+    $('#totalCosts').addClass("text-danger");
+}
 }
 
 function renderInfo() {
@@ -51,6 +54,7 @@ function renderInfo() {
     $('#annualSalary').val('');
 }
 
-// function deleteHandler() {
-
-// }
+function deleteFromTotal() {
+// console.log('DELETE THIS');
+$(this).closest("tr").remove();
+}
