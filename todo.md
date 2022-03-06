@@ -27,7 +27,7 @@ annual salary => ID is: annualSalary
 
 !! STRETCH GOALS !!
 - add styling or extra functionality that fits the theme
-// oh fuck yeah
+// oh hell yeah
 
 - Once the employee is deleted, update the _Total Monthly Cost_ section on the page to reflect the employee's removal. 
 

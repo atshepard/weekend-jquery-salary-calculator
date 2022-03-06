@@ -1,9 +1,11 @@
 # Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Salary Calculator
 
 ## Description
+This salary calculator takes user inputs of employee information and stores them in a table. As employee salaries are added, the monthly costs increase; conversely, when employees are removed from the list, the monthly cost total decreases by their salary amount. 
 
-Your project description goes here. What problem did you solve? How did you solve it?
+Decreasing the by salary amount was the most difficult challenge to overcome: but when I decided not to house the employee salaries in an array, and instead assign the salaries a class and total all items that share the same class, it became much easier. 
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+If the monthly budget of $20,000 is exceeded by employee salaries, the page will display a warning and change the total to red. 
+
+All styling was accomplished with bootstrap. 
