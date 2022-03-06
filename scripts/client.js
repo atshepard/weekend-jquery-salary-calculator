@@ -75,6 +75,7 @@ function checkTotal(numToCheck) {
     if (numToCheck > 20000) {
         $('#monthlyCosts').addClass("border border-danger");
         $('#totalCosts').addClass("text-danger");
+        alert('This item is over budget');
     } else {
         $('#monthlyCosts').removeClass("border border-danger");
         $('#totalCosts').removeClass("text-danger");
