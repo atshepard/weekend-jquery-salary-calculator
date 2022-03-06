@@ -1,13 +1,12 @@
 $(readyNow);
 
-// let totalSalary = [];
+// let totalSalary = []; //OBSOLETE - removed array from calculations
 
 function readyNow() {
 
 //Click Listeners:
 $('#submitBtn').on('click', grabInfo);
 $('#submitBtn').on('click', addToTotal);
-
 $('#tableRows').on('click', '.deleteBtn', deleteFromTotal);
 }
 
@@ -20,7 +19,7 @@ let jobTitle = $('#jobTitle').val()
 let annualSalary = $('#annualSalary').val()
 console.log('adding employee:', employeeFN, employeeLN, employeeID, jobTitle, annualSalary);
 
-// totalSalary.push(Number($('#annualSalary').val()));
+// totalSalary.push(Number($('#annualSalary').val())); //OBSOLETE - no more array for collection
 
 $('#tableRows').append(`<tr id="${employeeFN}">
 <td>${employeeFN}</td>
@@ -37,9 +36,9 @@ renderInfo();
 
 function addToTotal() { 
 // console.log('checking total salary: ', totalSalary); // OBSOLETE: array totalSalary no longer exists
-// let monthlyCosts = totalSalary.reduce((a,b) => a + b);
+// let monthlyCosts = totalSalary.reduce((a,b) => a + b); // OBSOLETE: no more array reduction for total
 
-//monthlyCosts will equal the total of all items with the .salary class
+//monthlyCosts will equal the sum of all items with the .salary class (created when inputs are collected)
 let monthlyCosts = 0;
 
 $(".salary").each(function(){
@@ -71,6 +70,8 @@ addToTotal()
 }
 
 function checkTotal(numToCheck) {
+    //checks the input and adjusts styles to correspond.  
+    //tried .toggleClass but it does not work with the code in its current iteration
     if (numToCheck > 20000) {
         $('#monthlyCosts').addClass("border border-danger");
         $('#totalCosts').addClass("text-danger");
