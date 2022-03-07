@@ -39,15 +39,14 @@ function addToTotal() {
 // let monthlyCosts = totalSalary.reduce((a,b) => a + b); // OBSOLETE: no more array reduction for total
 
 //monthlyCosts will equal the sum of all items with the .salary class (created when inputs are collected)
-let annualCosts = 0;
-let monthlyCosts = annualCosts/12;
+let monthlyCosts = 0;
 
 $(".salary").each(function(){
 currentRowSalary = Number($(this).text());
-        annualCosts += currentRowSalary
+        monthlyCosts += currentRowSalary
       });
 //shows total costs on the DOM:
-$('#totalCosts').text(monthlyCosts);
+$('#totalCosts').text((monthlyCosts / 12).toFixed(2));
 
 checkTotal(monthlyCosts);
 }
