@@ -12,11 +12,11 @@ $('#tableRows').on('click', '.deleteBtn', deleteFromTotal);
 
 function grabInfo() {
 //grabs info from the form
-let employeeFN = $('#employeeFN').val()
-let employeeLN = $('#employeeLN').val()
-let employeeID = $('#employeeID').val()
-let jobTitle = $('#jobTitle').val()
-let annualSalary = $('#annualSalary').val()
+let employeeFN = $('#employeeFN').val();
+let employeeLN = $('#employeeLN').val();
+let employeeID = $('#employeeID').val();
+let jobTitle = $('#jobTitle').val();
+let annualSalary = $('#annualSalary').val();
 console.log('adding employee:', employeeFN, employeeLN, employeeID, jobTitle, annualSalary);
 
 // totalSalary.push(Number($('#annualSalary').val())); //OBSOLETE - no more array for collection
@@ -30,7 +30,7 @@ $('#tableRows').append(`<tr id="${employeeFN}">
 <td><button type="button" class="deleteBtn btn btn-outline-secondary">Delete</button></td>
 </tr>`);
 
-renderInfo();
+wipeInfo();
 
 }
 
@@ -39,11 +39,12 @@ function addToTotal() {
 // let monthlyCosts = totalSalary.reduce((a,b) => a + b); // OBSOLETE: no more array reduction for total
 
 //monthlyCosts will equal the sum of all items with the .salary class (created when inputs are collected)
-let monthlyCosts = 0;
+let annualCosts = 0;
+let monthlyCosts = annualCosts/12;
 
 $(".salary").each(function(){
 currentRowSalary = Number($(this).text());
-        monthlyCosts += currentRowSalary
+        annualCosts += currentRowSalary
       });
 //shows total costs on the DOM:
 $('#totalCosts').text(monthlyCosts);
@@ -51,7 +52,7 @@ $('#totalCosts').text(monthlyCosts);
 checkTotal(monthlyCosts);
 }
 
-function renderInfo() {
+function wipeInfo() {
     //clears all values from the inputs:
     $('#employeeFN').val('');
     $('#employeeLN').val('');
@@ -66,7 +67,7 @@ function deleteFromTotal() {
 $(this).closest("tr").remove();
 
 //runs addToTotal function to get a NEW total after removal of the table row:
-addToTotal()
+addToTotal();
 }
 
 function checkTotal(numToCheck) {
